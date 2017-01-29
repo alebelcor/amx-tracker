@@ -1,0 +1,172 @@
+{
+  "status": "AVAILABLE",
+  "_collection": [{
+    "_collection": [{
+      "segments": {
+        "_collection": [{
+          "segmentCode": "TIJ_MEX_AM_2017-11-18_0905",
+          "departureAirport": "TIJ",
+          "departureDateTime": "2017-11-18T09:05:00",
+          "arrivalAirport": "MEX",
+          "arrivalDateTime": "2017-11-18T12:40:00",
+          "flightDurationInMinutes": 155,
+          "layoverToNextSegmentsInMinutes": 685
+        }, {
+          "segmentCode": "MEX_NRT_AM_2017-11-19_0005",
+          "departureAirport": "MEX",
+          "departureDateTime": "2017-11-19T00:05:00",
+          "arrivalAirport": "NRT",
+          "arrivalDateTime": "2017-11-20T06:20:00",
+          "flightDurationInMinutes": 915,
+          "layoverToNextSegmentsInMinutes": 0
+        }]
+      },
+      "fares": {
+        "_collection": [{
+          "fareType": "COACH_EC",
+          "seatsRemaining": 9,
+          "estimate": {
+            "currency": {
+              "currencyCode": "MXN",
+              "total": 12878
+            }
+          }
+        }]
+      }
+    }, {
+      "segments": {
+        "_collection": [{
+          "segmentCode": "TIJ_MEX_AM_2017-11-18_1440",
+          "departureAirport": "TIJ",
+          "departureDateTime": "2017-11-18T14:40:00",
+          "arrivalAirport": "MEX",
+          "arrivalDateTime": "2017-11-18T18:15:00",
+          "flightDurationInMinutes": 155,
+          "layoverToNextSegmentsInMinutes": 350
+        }, {
+          "segmentCode": "MEX_NRT_AM_2017-11-19_0005",
+          "departureAirport": "MEX",
+          "departureDateTime": "2017-11-19T00:05:00",
+          "arrivalAirport": "NRT",
+          "arrivalDateTime": "2017-11-20T06:20:00",
+          "flightDurationInMinutes": 915,
+          "layoverToNextSegmentsInMinutes": 0
+        }]
+      },
+      "fares": {
+        "_collection": [{
+          "fareType": "COACH_EC",
+          "seatsRemaining": 9,
+          "estimate": {
+            "currency": {
+              "currencyCode": "MXN",
+              "total": 12878
+            }
+          }
+        }]
+      }
+    }, {
+      "segments": {
+        "_collection": [{
+          "segmentCode": "TIJ_MEX_AM_2017-11-18_1830",
+          "departureAirport": "TIJ",
+          "departureDateTime": "2017-11-18T18:30:00",
+          "arrivalAirport": "MEX",
+          "arrivalDateTime": "2017-11-18T22:05:00",
+          "flightDurationInMinutes": 155,
+          "layoverToNextSegmentsInMinutes": 120
+        }, {
+          "segmentCode": "MEX_NRT_AM_2017-11-19_0005",
+          "departureAirport": "MEX",
+          "departureDateTime": "2017-11-19T00:05:00",
+          "arrivalAirport": "NRT",
+          "arrivalDateTime": "2017-11-20T06:20:00",
+          "flightDurationInMinutes": 915,
+          "layoverToNextSegmentsInMinutes": 0
+        }]
+      },
+      "fares": {
+        "_collection": [{
+          "fareId": -871872923,
+          "fareType": "COACH_EC",
+          "couponCode": "",
+          "discounted": false,
+          "premierPartiallyUnavailable": false,
+          "seatsRemaining": 9,
+          "estimate": {
+            "currency": {
+              "currencyCode": "MXN",
+              "total": 12878
+            }
+          }
+        }]
+      }
+    }]
+  }, {
+    "_collection": [{
+      "segments": {
+        "_collection": [{
+          "segmentCode": "NRT_MEX_AM_2017-12-09_1525",
+          "departureAirport": "NRT",
+          "departureDateTime": "2017-12-09T15:25:00",
+          "arrivalAirport": "MEX",
+          "arrivalDateTime": "2017-12-09T13:00:00",
+          "flightDurationInMinutes": 755,
+          "layoverToNextSegmentsInMinutes": 180
+        }, {
+          "segmentCode": "MEX_TIJ_AM_2017-12-09_1600",
+          "departureAirport": "MEX",
+          "departureDateTime": "2017-12-09T16:00:00",
+          "arrivalAirport": "TIJ",
+          "arrivalDateTime": "2017-12-09T17:54:00",
+          "flightDurationInMinutes": 174,
+          "layoverToNextSegmentsInMinutes": 0
+        }]
+      },
+      "fares": {
+        "_collection": [{
+          "fareType": "COACH_EC",
+          "seatsRemaining": 9,
+          "estimate": {
+            "currency": {
+              "currencyCode": "MXN",
+              "total": 13044
+            }
+          }
+        }]
+      }
+    }, {
+      "segments": {
+        "_collection": [{
+          "segmentCode": "NRT_MEX_AM_2017-12-09_1525",
+          "departureAirport": "NRT",
+          "departureDateTime": "2017-12-09T15:25:00",
+          "arrivalAirport": "MEX",
+          "arrivalDateTime": "2017-12-09T13:00:00",
+          "flightDurationInMinutes": 755,
+          "layoverToNextSegmentsInMinutes": 530
+        }, {
+          "segmentCode": "MEX_TIJ_AM_2017-12-09_2150",
+          "departureAirport": "MEX",
+          "departureDateTime": "2017-12-09T21:50:00",
+          "arrivalAirport": "TIJ",
+          "arrivalDateTime": "2017-12-09T23:51:00",
+          "flightDurationInMinutes": 181,
+          "layoverToNextSegmentsInMinutes": 0
+        }]
+      },
+      "fares": {
+        "_collection": [{
+          "fareType": "COACH_EC",
+          "seatsRemaining": 4,
+          "estimate": {
+            "currency": {
+              "currencyCode": "MXN",
+              "total": 13044
+            }
+          }
+        }]
+      }
+    }]
+  }]
+}

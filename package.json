@@ -1,0 +1,38 @@
+{
+  "name": "am-tracker",
+  "version": "1.0.0",
+  "description": "App that monitors and sends notifications for changes in Aeroméxico fare prices",
+  "bugs": "https://github.com/alebelcor/am-tracker/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Alejandro Beltrán",
+    "email": "alebelcor@gmail.com",
+    "url": "https://github.com/alebelcor"
+  },
+  "main": "cli.js",
+  "bin": {
+    "am-tracker": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alebelcor/am-tracker"
+  },
+  "scripts": {
+    "test": "ava",
+    "watch": "ava --watch"
+  },
+  "dependencies": {
+    "airports": "^1.0.0",
+    "currency-formatter": "^1.0.8",
+    "got": "^6.7.1",
+    "meow": "^3.7.0",
+    "moment": "^2.17.1",
+    "twilio": "^2.11.1"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2"
+  },
+  "private": true
+}
