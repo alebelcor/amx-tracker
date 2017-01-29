@@ -2,6 +2,8 @@
 
 > App that monitors and sends notifications for changes in [Aeroméxico](https://aeromexico.com) fare prices
 
+[![Build Status](https://img.shields.io/travis/alebelcor/am-tracker/master.svg)](https://travis-ci.org/alebelcor/am-tracker)
+
 ## Install
 
 Ensure you have [Node.js](https://nodejs.org) version 6+ installed.
