@@ -10,7 +10,6 @@ const getLowestTotal = require('./lib/get-lowest-total');
 const getSearchDeeplink = require('./lib/get-search-deeplink');
 const hasNotificationsEnabled = require('./lib/has-notifications-enabled')();
 const currencyFormatter = require('currency-formatter');
-const sendNotification = require('./lib/send-notification');
 
 const cli = meow(`
   Requirements
@@ -43,6 +42,7 @@ const execute = () => {
         const notificationMessage = `Deal alert! New total: ${currencyFormatter.format(lowestTotal, {code: 'MXN'})}. Check it out here: ${getSearchDeeplink(options)}`;
 
         if (options.dealPrice && hasNotificationsEnabled) {
+          const sendNotification = require('./lib/send-notification');
           sendNotification(notificationMessage);
         }
 
