@@ -1,6 +1,6 @@
 # am-tracker
 
-> App that monitors and sends notifications for changes in [Aeroméxico](https://aeromexico.com) fare prices
+> App that gets/tracks [Aeroméxico](https://aeromexico.com) fare prices and optionally sends notifications
 
 [![Build Status](https://img.shields.io/travis/alebelcor/am-tracker/master.svg)](https://travis-ci.org/alebelcor/am-tracker)
 
@@ -21,11 +21,11 @@ Set up `AM_TRACKER_USER_AGENT` environmental variable with your user agent.
 $ am-tracker <options>
 ```
 
-The search is made for one adult.
+All searches are made for one adult.
 
-### Notifications
+### Notifications (optional)
 
-Notifications are sent, via Twilio as SMSs, when a desired deal price has been met.
+When tracking, notifications are sent (via Twilio as SMSs) when a desired deal price has been met.
 
 To enable notifications setup these environmental variables with your Twilio account details:
 
@@ -38,7 +38,17 @@ TWILIO_PHONE_TO
 
 ### Examples
 
-Scenario A: Track any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `5000 MXN` (or less), polling every `60` minutes.
+Scenario A: Get the current cheapest total of any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-03-13` and returning `2017-03-20`.
+
+```bash
+$ am-tracker \
+  --from=TIJ \
+  --to=MEX \
+  --departure=2017-03-13 \
+  --return=2017-03-20
+```
+
+Scenario B: Track any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `5000 MXN` (or less), polling every `60` minutes.
 
 ```bash
 $ am-tracker \
@@ -50,7 +60,7 @@ $ am-tracker \
   --interval=60
 ```
 
-Scenario B: Track any one-way flight (1 adult) from `MEX` to `CUN` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `7000 MXN` (or less), polling every `30` minutes.
+Scenario C: Track any one-way flight (1 adult) from `MEX` to `CUN` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `7000 MXN` (or less), polling every `30` minutes.
 
 ```bash
 $ am-tracker \
@@ -61,10 +71,6 @@ $ am-tracker \
 ```
 
 ### CLI options
-
-#### `--deal-price=<number>`
-
-Desired total price in Mexican Pesos (MXN).
 
 #### `--from=<string>`
 
@@ -80,19 +86,21 @@ Departure date in `YYYY-MM-DD`.
 
 #### `--return=<string>` (optional)
 
-Return date in `YYYY-MM-DD`. Leave this out if it's a one-way flight.
+Return date in `YYYY-MM-DD`. Leave out if it's a one-way flight.
+
+#### `--deal-price=<number>` (optional)
+
+Desired total price in Mexican Pesos (MXN). Leave out if not tracking a price and instead just want to get the current cheapest total.
 
 #### `--interval=<number>` (optional)
 
-Number of minutes until next time fare prices are checked. `30` by default.
+Number of minutes until next time fare prices are checked. `30` by default. Ignored if `deal-price` was not set.
 
 ### Alternate setup
 
-You can also pre-configure the app using these environmental variables:
+You can also pre-configure the app using the following environmental variables.
 
-#### `AM_TRACKER_DEAL_PRICE`
-
-Same as [`--deal-price`](#--deal-pricenumber).
+Do not combine both, CLI options and environmental variables, because you'll get unexpected behavior.
 
 #### `AM_TRACKER_ORIGIN_AIRPORT`
 
@@ -109,6 +117,10 @@ Same as [`--departure`](#--departurestring).
 #### `AM_TRACKER_RETURN_DATE`
 
 Same as [`--return`](#--returnstring-optional).
+
+#### `AM_TRACKER_DEAL_PRICE`
+
+Same as [`--deal-price`](#--deal-pricenumber).
 
 #### `AM_TRACKER_INTERVAL`
 

@@ -20,11 +20,11 @@ const cli = meow(`
     $ am-tracker <options>
 
   Options
-    --deal-price  Desired total price in Mexican Pesos
     --from        Origin airport code
     --to          Destination airport code
     --departure   Departure date in YYYY-MM-DD
     --return      Return date in YYYY-MM-DD (optional, leave out if one-way)
+    --deal-price  Desired total price in Mexican Pesos (optional, leave out to get current cheapest total)
     --interval    Number of minutes until next run (optional, 30 by default)
 `);
 
@@ -34,6 +34,11 @@ const execute = () => {
   fetch(options)
     .then(getLowestTotal)
     .then((lowestTotal) => {
+      if (!options.dealPrice) {
+        console.log(`Cheapest total: ${currencyFormatter.format(lowestTotal, {code: 'MXN'})}. Check it out here: ${getSearchDeeplink(options)}`);
+        return;
+      }
+
       if (lowestTotal <= options.dealPrice) {
         const notificationMessage = `Deal alert! New total: ${currencyFormatter.format(lowestTotal, {code: 'MXN'})}. Check it out here: ${getSearchDeeplink(options)}`;
 
@@ -50,9 +55,3 @@ const execute = () => {
 };
 
 execute();
-
-/*
-
-// test against no availability
-
-*/
