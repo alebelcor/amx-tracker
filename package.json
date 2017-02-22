@@ -1,7 +1,7 @@
 {
   "name": "am-tracker",
   "version": "1.0.0",
-  "description": "App that gets/tracks Aeroméxico fare prices and optionally sends notifications",
+  "description": "Track changes in Aeroméxico fare prices through the command-line",
   "bugs": "https://github.com/alebelcor/am-tracker/issues",
   "license": "MIT",
   "author": {

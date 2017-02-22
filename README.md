@@ -1,6 +1,6 @@
 # am-tracker
 
-> App that gets/tracks [Aeroméxico](https://aeromexico.com) fare prices and optionally sends notifications
+>️ Track changes in [Aeroméxico](https://aeromexico.com) fare prices through the command-line
 
 [![Build Status](https://img.shields.io/travis/alebelcor/am-tracker/master.svg)](https://travis-ci.org/alebelcor/am-tracker)
 
