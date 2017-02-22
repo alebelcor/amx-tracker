@@ -12,9 +12,6 @@ const hasNotificationsEnabled = require('./lib/has-notifications-enabled')();
 const currencyFormatter = require('currency-formatter');
 
 const cli = meow(`
-  Requirements
-    Set up AMX_TRACKER_USER_AGENT environmental variable
-
   Usage
     $ amx-tracker <options>
 

@@ -17,8 +17,6 @@ test.before((t) => {
       }
     }
   });
-
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 });
 
 test.after((t) => {

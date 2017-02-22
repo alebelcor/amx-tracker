@@ -26,8 +26,6 @@ test.before((t) => {
   get = sinon.stub(got, 'get').resolves({
     body: fixtures
   });
-
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 });
 
 test.after((t) => {

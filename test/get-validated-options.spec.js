@@ -17,7 +17,6 @@ test.beforeEach((t) => {
   delete process.env.AMX_TRACKER_DEAL_PRICE;
   delete process.env.AMX_TRACKER_INTERVAL;
   delete process.env.AMX_TRACKER_DESTINATION_AIRPORT;
-  delete process.env.AMX_TRACKER_USER_AGENT;
 });
 
 test('it should throw an error when origin airport is missing (using options)', (t) => {
@@ -163,7 +162,6 @@ test('it should not throw an error when the deal price is missing', (t) => {
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.interval = 40;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
@@ -176,7 +174,6 @@ test('it should not throw an error when deal price is invalid (using options)', 
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 'foo';
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
@@ -189,7 +186,6 @@ test('it should not throw an error when deal price is invalid (env vars)', (t) =
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   process.env.AMX_TRACKER_DEAL_PRICE = 'foo';
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 
   t.notThrows(() => {
     get(options);
@@ -202,7 +198,6 @@ test('it should not throw an error when deal price is zero', (t) => {
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 0;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
@@ -215,7 +210,6 @@ test('it should not throw an error when deal price is zero or less', (t) => {
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = -1;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
@@ -228,7 +222,6 @@ test('it should not throw an error when the interval is missing', (t) => {
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 
   t.notThrows(() => {
     get(options);
@@ -242,7 +235,6 @@ test('it should not throw an error when the interval is invalid (using options)'
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   options.interval = {};
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 
   t.notThrows(() => {
     get(options);
@@ -256,7 +248,6 @@ test('it should not throw an error when the interval is invalid (using env vars)
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   process.env.AMX_TRACKER_INTERVAL = 'foo';
-  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 
   t.notThrows(() => {
     get(options);
@@ -270,7 +261,6 @@ test('it should not throw an error when the interval is zero', (t) => {
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   options.interval = 0;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
@@ -284,27 +274,10 @@ test('it should not throw an error when the interval is zero or less', (t) => {
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   options.interval = -1;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   t.notThrows(() => {
     get(options);
   });
-});
-
-test('it should throw an error when the user agent is missing (using env vars)', (t) => {
-  options.from = 'MEX';
-  options.to = 'TIJ';
-  options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
-  options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
-  options.dealPrice = 10000;
-  options.interval = 40;
-  process.env.AMX_TRACKER_USER_AGENT = '';
-
-  let error = t.throws(() => {
-    get(options);
-  }, TypeError);
-
-  t.is(error.message, 'Environment variable `AMX_TRACKER_USER_AGENT` is missing');
 });
 
 test('it should return a validated options object (using options)', (t) => {
@@ -314,7 +287,6 @@ test('it should return a validated options object (using options)', (t) => {
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   options.interval = 40;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   let validated = get(options);
 
@@ -328,7 +300,6 @@ test('it should return a validated options object (using env vars)', (t) => {
   process.env.AMX_TRACKER_RETURN_DATE = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   process.env.AMX_TRACKER_DEAL_PRICE = 10000;
   process.env.AMX_TRACKER_INTERVAL = 40;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   let validated = get(options);
 
@@ -341,7 +312,6 @@ test('the options object should have certain members (with return date)', (t) =>
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.return = moment().add(1, 'day').format(constants.DATETIME_DATE_FORMAT);
   options.interval = 40;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   let validated = get(options);
 
@@ -358,7 +328,6 @@ test('the options object should have certain members (with deal price)', (t) => 
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
   options.dealPrice = 10000;
   options.interval = 40;
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   let validated = get(options);
 
@@ -373,7 +342,6 @@ test('the options object should have certain members (always present)', (t) => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
-  process.env.AMX_TRACKER_USER_AGENT = 'foo';
 
   let validated = get(options);
 

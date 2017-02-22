@@ -15,8 +15,6 @@ An npm package is intentionally not provided.
 
 ## Usage
 
-Set up `AMX_TRACKER_USER_AGENT` environmental variable with your user agent.
-
 ```bash
 $ amx-tracker <options>
 ```
