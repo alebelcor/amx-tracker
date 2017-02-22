@@ -9,6 +9,10 @@
     "email": "alebelcor@gmail.com",
     "url": "https://github.com/alebelcor"
   },
+  "files": [
+    "cli.js",
+    "lib"
+  ],
   "main": "cli.js",
   "bin": {
     "am-tracker": "cli.js"
