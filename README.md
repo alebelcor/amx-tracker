@@ -6,7 +6,7 @@
 
 ## Install
 
-Ensure you have [Node.js](https://nodejs.org) version 6+ installed.
+Ensure you have [Node.js](https://nodejs.org) version 4+ installed.
 
 1. Clone the repository
 2. Go to the folder and run: [`npm link`](https://docs.npmjs.com/cli/link)
