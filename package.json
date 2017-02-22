@@ -1,8 +1,8 @@
 {
-  "name": "am-tracker",
+  "name": "amx-tracker",
   "version": "1.0.0",
   "description": "Track changes in Aeroméxico fare prices through the command-line",
-  "bugs": "https://github.com/alebelcor/am-tracker/issues",
+  "bugs": "https://github.com/alebelcor/amx-tracker/issues",
   "license": "MIT",
   "author": {
     "name": "Alejandro Beltrán",
@@ -15,11 +15,11 @@
   ],
   "main": "cli.js",
   "bin": {
-    "am-tracker": "cli.js"
+    "amx-tracker": "cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alebelcor/am-tracker"
+    "url": "https://github.com/alebelcor/amx-tracker"
   },
   "scripts": {
     "test": "ava",

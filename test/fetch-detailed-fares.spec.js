@@ -27,7 +27,7 @@ test.before((t) => {
     body: fixtures
   });
 
-  process.env.AM_TRACKER_USER_AGENT = 'bar';
+  process.env.AMX_TRACKER_USER_AGENT = 'bar';
 });
 
 test.after((t) => {

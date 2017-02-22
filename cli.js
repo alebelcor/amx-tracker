@@ -13,10 +13,10 @@ const currencyFormatter = require('currency-formatter');
 
 const cli = meow(`
   Requirements
-    Set up AM_TRACKER_USER_AGENT environmental variable
+    Set up AMX_TRACKER_USER_AGENT environmental variable
 
   Usage
-    $ am-tracker <options>
+    $ amx-tracker <options>
 
   Options
     --from        Origin airport code

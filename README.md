@@ -1,8 +1,8 @@
-# am-tracker
+# amx-tracker
 
 >️ Track changes in [Aeroméxico](https://aeromexico.com) fare prices through the command-line
 
-[![Build Status](https://img.shields.io/travis/alebelcor/am-tracker/master.svg)](https://travis-ci.org/alebelcor/am-tracker)
+[![Build Status](https://img.shields.io/travis/alebelcor/amx-tracker/master.svg)](https://travis-ci.org/alebelcor/amx-tracker)
 
 ## Install
 
@@ -15,10 +15,10 @@ An npm package is intentionally not provided.
 
 ## Usage
 
-Set up `AM_TRACKER_USER_AGENT` environmental variable with your user agent.
+Set up `AMX_TRACKER_USER_AGENT` environmental variable with your user agent.
 
 ```bash
-$ am-tracker <options>
+$ amx-tracker <options>
 ```
 
 All searches are made for one adult.
@@ -41,7 +41,7 @@ TWILIO_PHONE_TO
 Scenario A: Get the current cheapest total of any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-03-13` and returning `2017-03-20`.
 
 ```bash
-$ am-tracker \
+$ amx-tracker \
   --from=TIJ \
   --to=MEX \
   --departure=2017-03-13 \
@@ -51,7 +51,7 @@ $ am-tracker \
 Scenario B: Track any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `5000 MXN` (or less), polling every `60` minutes.
 
 ```bash
-$ am-tracker \
+$ amx-tracker \
   --deal-price=5000 \
   --from=TIJ \
   --to=MEX \
@@ -63,7 +63,7 @@ $ am-tracker \
 Scenario C: Track any one-way flight (1 adult) from `MEX` to `CUN` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `7000 MXN` (or less), polling every `30` minutes.
 
 ```bash
-$ am-tracker \
+$ amx-tracker \
   --deal-price=7000 \
   --from=MEX \
   --to=CUN \
@@ -102,27 +102,27 @@ You can also pre-configure the app using the following environmental variables.
 
 Do not combine both, CLI options and environmental variables, because you'll get unexpected behavior.
 
-#### `AM_TRACKER_ORIGIN_AIRPORT`
+#### `AMX_TRACKER_ORIGIN_AIRPORT`
 
 Same as [`--from`](#--fromstring).
 
-#### `AM_TRACKER_DESTINATION_AIRPORT`
+#### `AMX_TRACKER_DESTINATION_AIRPORT`
 
 Same as [`--to`](#--tostring).
 
-#### `AM_TRACKER_DEPARTURE_DATE`
+#### `AMX_TRACKER_DEPARTURE_DATE`
 
 Same as [`--departure`](#--departurestring).
 
-#### `AM_TRACKER_RETURN_DATE`
+#### `AMX_TRACKER_RETURN_DATE`
 
 Same as [`--return`](#--returnstring-optional).
 
-#### `AM_TRACKER_DEAL_PRICE`
+#### `AMX_TRACKER_DEAL_PRICE`
 
 Same as [`--deal-price`](#--deal-pricenumber).
 
-#### `AM_TRACKER_INTERVAL`
+#### `AMX_TRACKER_INTERVAL`
 
 Same as [`--interval`](#--intervalnumber-optional).
 
