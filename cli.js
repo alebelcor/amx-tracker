@@ -3,13 +3,11 @@
 'use strict';
 
 const meow = require('meow');
+const cheapestAirfareAmx = require('cheapest-airfare-amx');
+const currencyFormatter = require('currency-formatter');
 
 const getValidatedOptions = require('./lib/get-validated-options');
-const fetch = require('./lib/fetch');
-const getLowestTotal = require('./lib/get-lowest-total');
-const getSearchDeeplink = require('./lib/get-search-deeplink');
 const hasNotificationsEnabled = require('./lib/has-notifications-enabled')();
-const currencyFormatter = require('currency-formatter');
 
 const cli = meow(`
   Usage
@@ -27,16 +25,15 @@ const cli = meow(`
 const options = getValidatedOptions(cli.flags);
 
 const execute = () => {
-  fetch(options)
-    .then(getLowestTotal)
-    .then((lowestTotal) => {
+  cheapestAirfareAmx(options)
+    .then((result) => {
       if (!options.dealPrice) {
-        console.log(`Cheapest total: ${currencyFormatter.format(lowestTotal, {code: 'MXN'})}. Check it out here: ${getSearchDeeplink(options)}`);
+        console.log(`Cheapest total: ${currencyFormatter.format(result.total, {code: 'MXN'})}. Check it out here: ${result.source}`);
         return;
       }
 
-      if (lowestTotal <= options.dealPrice) {
-        const notificationMessage = `Deal alert! New total: ${currencyFormatter.format(lowestTotal, {code: 'MXN'})}. Check it out here: ${getSearchDeeplink(options)}`;
+      if (result.total <= options.dealPrice) {
+        const notificationMessage = `Deal alert! New total: ${currencyFormatter.format(result.total, {code: 'MXN'})}. Check it out here: ${result.source}`;
 
         if (options.dealPrice && hasNotificationsEnabled) {
           const sendNotification = require('./lib/send-notification');

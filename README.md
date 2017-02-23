@@ -9,7 +9,8 @@
 Ensure you have [Node.js](https://nodejs.org) version 4+ installed.
 
 1. Clone the repository
-2. Go to the folder and run: [`npm link`](https://docs.npmjs.com/cli/link)
+2. Install dependencies: `npm install`
+3. Create global symlink: [`npm link`](https://docs.npmjs.com/cli/link)
 
 An npm package is intentionally not provided.
 

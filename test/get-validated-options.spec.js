@@ -315,10 +315,10 @@ test('the options object should have certain members (with return date)', (t) =>
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('originAirport'));
-  t.true(validated.hasOwnProperty('destinationAirport'));
-  t.true(validated.hasOwnProperty('departureDate'));
-  t.true(validated.hasOwnProperty('returnDate'));
+  t.true(validated.hasOwnProperty('from'));
+  t.true(validated.hasOwnProperty('to'));
+  t.true(validated.hasOwnProperty('departure'));
+  t.true(validated.hasOwnProperty('return'));
   t.true(validated.hasOwnProperty('interval'));
 });
 
@@ -331,9 +331,9 @@ test('the options object should have certain members (with deal price)', (t) => 
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('originAirport'));
-  t.true(validated.hasOwnProperty('destinationAirport'));
-  t.true(validated.hasOwnProperty('departureDate'));
+  t.true(validated.hasOwnProperty('from'));
+  t.true(validated.hasOwnProperty('to'));
+  t.true(validated.hasOwnProperty('departure'));
   t.true(validated.hasOwnProperty('dealPrice'));
   t.true(validated.hasOwnProperty('interval'));
 });
@@ -345,8 +345,8 @@ test('the options object should have certain members (always present)', (t) => {
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('originAirport'));
-  t.true(validated.hasOwnProperty('destinationAirport'));
-  t.true(validated.hasOwnProperty('departureDate'));
+  t.true(validated.hasOwnProperty('from'));
+  t.true(validated.hasOwnProperty('to'));
+  t.true(validated.hasOwnProperty('departure'));
   t.true(validated.hasOwnProperty('interval'));
 });
