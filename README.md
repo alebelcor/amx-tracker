@@ -125,6 +125,11 @@ Same as [`--deal-price`](#--deal-pricenumber).
 
 Same as [`--interval`](#--intervalnumber-optional).
 
+## Related
+
+* [cheapest-airfare-amx](https://github.com/alebelcor/cheapest-airfare-amx) - Get the cheapest airfare of an [Aeroméxico](https://aeromexico.com) flight
+* [cheapest-airfare-viv](https://github.com/alebelcor/cheapest-airfare-viv) - Get the cheapest airfare of a [VivaAerobus](https://www.vivaaerobus.com) flight
+
 ## License
 
 MIT © Alejandro Beltrán
