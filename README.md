@@ -103,27 +103,27 @@ Do not combine both, CLI options and environmental variables, because you'll get
 
 #### `AMX_TRACKER_ORIGIN_AIRPORT`
 
-Same as [`--from`](#--fromstring).
+Same as [`--from`](#--from-string).
 
 #### `AMX_TRACKER_DESTINATION_AIRPORT`
 
-Same as [`--to`](#--tostring).
+Same as [`--to`](#--to-string).
 
 #### `AMX_TRACKER_DEPARTURE_DATE`
 
-Same as [`--departure`](#--departurestring).
+Same as [`--departure`](#--departure-string).
 
 #### `AMX_TRACKER_RETURN_DATE`
 
-Same as [`--return`](#--returnstring-optional).
+Same as [`--return`](#--return-string-optional).
 
 #### `AMX_TRACKER_DEAL_PRICE`
 
-Same as [`--deal-price`](#--deal-pricenumber-optional).
+Same as [`--deal-price`](#--deal-price-number-optional).
 
 #### `AMX_TRACKER_INTERVAL`
 
-Same as [`--interval`](#--intervalnumber-optional).
+Same as [`--interval`](#--interval-number-optional).
 
 ## Related
 
