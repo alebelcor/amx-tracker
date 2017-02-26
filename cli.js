@@ -14,12 +14,12 @@ const cli = meow(`
     $ amx-tracker <options>
 
   Options
-    --from        Origin airport code
-    --to          Destination airport code
-    --departure   Departure date in YYYY-MM-DD
-    --return      Return date in YYYY-MM-DD (optional, leave out if one-way)
-    --deal-price  Desired total price in Mexican Pesos (optional, leave out to get current cheapest total)
-    --interval    Number of minutes until next run (optional, 30 by default)
+    --from <airport>        Origin airport code
+    --to <airport>          Destination airport code
+    --departure <date>      Departure date in YYYY-MM-DD
+    [--return <date>]       Return date in YYYY-MM-DD (optional, leave out if one-way)
+    [--deal-price <date>]   Desired total price in Mexican Pesos (optional, leave out to get current cheapest total)
+    [--interval <minutes>]  Number of minutes until next run (optional, 30 by default)
 `);
 
 const options = getValidatedOptions(cli.flags);

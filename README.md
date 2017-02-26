@@ -41,57 +41,57 @@ Scenario A: Get the current cheapest total of any roundtrip flight (1 adult) fro
 
 ```bash
 $ amx-tracker \
-  --from=TIJ \
-  --to=MEX \
-  --departure=2017-03-13 \
-  --return=2017-03-20
+  --from TIJ \
+  --to MEX \
+  --departure 2017-03-13 \
+  --return 2017-03-20
 ```
 
 Scenario B: Track any roundtrip flight (1 adult) from `TIJ` to `MEX` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `5000 MXN` (or less), polling every `60` minutes.
 
 ```bash
 $ amx-tracker \
-  --deal-price=5000 \
-  --from=TIJ \
-  --to=MEX \
-  --departure=2017-08-07 \
-  --return=2017-08-14 \
-  --interval=60
+  --deal-price 5000 \
+  --from TIJ \
+  --to MEX \
+  --departure 2017-08-07 \
+  --return 2017-08-14 \
+  --interval 60
 ```
 
 Scenario C: Track any one-way flight (1 adult) from `MEX` to `CUN` leaving `2017-08-07` and returning `2017-08-14` with a desired deal price total of `7000 MXN` (or less), polling every `30` minutes.
 
 ```bash
 $ amx-tracker \
-  --deal-price=7000 \
-  --from=MEX \
-  --to=CUN \
-  --departure=2017-08-07
+  --deal-price 7000 \
+  --from MEX \
+  --to CUN \
+  --departure 2017-08-07
 ```
 
 ### CLI options
 
-#### `--from=<string>`
+#### `--from <string>`
 
 Origin airport IATA code.
 
-#### `--to=<string>`
+#### `--to <string>`
 
 Destination airport IATA code.
 
-#### `--departure=<string>`
+#### `--departure <string>`
 
 Departure date in `YYYY-MM-DD`.
 
-#### `[--return=<string>]` (optional)
+#### `[--return <string>]` (optional)
 
 Return date in `YYYY-MM-DD`. Leave out if it's a one-way flight.
 
-#### `[--deal-price=<number>]` (optional)
+#### `[--deal-price <number>]` (optional)
 
 Desired total price in Mexican Pesos (MXN). Leave out if not tracking a price and instead just want to get the current cheapest total.
 
-#### `[--interval=<number>]` (optional)
+#### `[--interval <number>]` (optional)
 
 Number of minutes until next time fare prices are checked. `30` by default. Ignored if `deal-price` was not set.
 
