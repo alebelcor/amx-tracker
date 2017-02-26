@@ -83,15 +83,15 @@ Destination airport IATA code.
 
 Departure date in `YYYY-MM-DD`.
 
-#### `--return=<string>` (optional)
+#### `[--return=<string>]` (optional)
 
 Return date in `YYYY-MM-DD`. Leave out if it's a one-way flight.
 
-#### `--deal-price=<number>` (optional)
+#### `[--deal-price=<number>]` (optional)
 
 Desired total price in Mexican Pesos (MXN). Leave out if not tracking a price and instead just want to get the current cheapest total.
 
-#### `--interval=<number>` (optional)
+#### `[--interval=<number>]` (optional)
 
 Number of minutes until next time fare prices are checked. `30` by default. Ignored if `deal-price` was not set.
 
