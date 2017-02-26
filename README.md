@@ -119,7 +119,7 @@ Same as [`--return`](#--returnstring-optional).
 
 #### `AMX_TRACKER_DEAL_PRICE`
 
-Same as [`--deal-price`](#--deal-pricenumber).
+Same as [`--deal-price`](#--deal-pricenumber-optional).
 
 #### `AMX_TRACKER_INTERVAL`
 
