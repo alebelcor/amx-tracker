@@ -93,7 +93,7 @@ Desired total price in Mexican Pesos (MXN). Leave out if not tracking a price an
 
 #### `[--interval <number>]` (optional)
 
-Number of minutes until next time fare prices are checked. `30` by default. Ignored if `deal-price` was not set.
+Number of minutes until next time fare prices are checked. `30` by default. Ignored if `--deal-price` was not set.
 
 ### Alternate setup
 
