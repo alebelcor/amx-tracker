@@ -8,7 +8,7 @@ import get from '../lib/get-validated-options';
 
 let options;
 
-test.beforeEach((t) => {
+test.beforeEach(() => {
   options = {};
 
   delete process.env.AMX_TRACKER_ORIGIN_AIRPORT;
@@ -19,7 +19,7 @@ test.beforeEach((t) => {
   delete process.env.AMX_TRACKER_DESTINATION_AIRPORT;
 });
 
-test('it should throw an error when origin airport is missing (using options)', (t) => {
+test('it should throw an error when origin airport is missing (using options)', t => {
   options.from = {};
 
   let error = t.throws(() => {
@@ -29,7 +29,7 @@ test('it should throw an error when origin airport is missing (using options)', 
   t.is(error.message, 'Origin airport code is missing');
 });
 
-test('it should throw an error when origin airport is missing (using env vars)', (t) => {
+test('it should throw an error when origin airport is missing (using env vars)', t => {
   process.env.AMX_TRACKER_ORIGIN_AIRPORT = '';
 
   let error = t.throws(() => {
@@ -39,7 +39,7 @@ test('it should throw an error when origin airport is missing (using env vars)',
   t.is(error.message, 'Origin airport code is missing');
 });
 
-test('it should throw and error when origin airport is invalid', (t) => {
+test('it should throw and error when origin airport is invalid', t => {
   options.from = 'foo';
 
   let error = t.throws(() => {
@@ -49,7 +49,7 @@ test('it should throw and error when origin airport is invalid', (t) => {
   t.is(error.message, 'Origin airport code is invalid');
 });
 
-test('it should throw an error when destination airport is missing (using options)', (t) => {
+test('it should throw an error when destination airport is missing (using options)', t => {
   options.from = 'MEX';
   options.to = {};
 
@@ -60,7 +60,7 @@ test('it should throw an error when destination airport is missing (using option
   t.is(error.message, 'Destination airport code is missing');
 });
 
-test('it should throw an error when destination airport is missing (using env vars)', (t) => {
+test('it should throw an error when destination airport is missing (using env vars)', t => {
   options.from = 'MEX';
   process.env.AMX_TRACKER_DESTINATION_AIRPORT = '';
 
@@ -71,7 +71,7 @@ test('it should throw an error when destination airport is missing (using env va
   t.is(error.message, 'Destination airport code is missing');
 });
 
-test('it should throw an error when destination airport is invalid', (t) => {
+test('it should throw an error when destination airport is invalid', t => {
   options.from = 'MEX';
   options.to = 'foo';
 
@@ -82,7 +82,7 @@ test('it should throw an error when destination airport is invalid', (t) => {
   t.is(error.message, 'Destination airport code is invalid');
 });
 
-test('it should throw an error when departure date is missing (using options)', (t) => {
+test('it should throw an error when departure date is missing (using options)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = {};
@@ -94,7 +94,7 @@ test('it should throw an error when departure date is missing (using options)', 
   t.is(error.message, 'Departure date is missing');
 });
 
-test('it should throw an error when departure date is missing (using env vars)', (t) => {
+test('it should throw an error when departure date is missing (using env vars)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   process.env.AMX_TRACKER_DEPARTURE_DATE = '';
@@ -106,7 +106,7 @@ test('it should throw an error when departure date is missing (using env vars)',
   t.is(error.message, 'Departure date is missing');
 });
 
-test('it should throw an error when the departure date is in an invalid format', (t) => {
+test('it should throw an error when the departure date is in an invalid format', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format('YYYY/MM/DD');
@@ -118,7 +118,7 @@ test('it should throw an error when the departure date is in an invalid format',
   t.is(error.message, 'Departure date is invalid');
 });
 
-test('it should throw an error when the departure date is a past date', (t) => {
+test('it should throw an error when the departure date is a past date', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().subtract(1, 'day').format(constants.DATETIME_DATE_FORMAT);
@@ -130,7 +130,7 @@ test('it should throw an error when the departure date is a past date', (t) => {
   t.is(error.message, 'Departure date is invalid');
 });
 
-test('it should throw an error when the return date is invalid', (t) => {
+test('it should throw an error when the return date is invalid', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -143,7 +143,7 @@ test('it should throw an error when the return date is invalid', (t) => {
   t.is(error.message, 'Return date is invalid');
 });
 
-test('it should throw an error when the return date is before departure date', (t) => {
+test('it should throw an error when the return date is before departure date', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -156,7 +156,7 @@ test('it should throw an error when the return date is before departure date', (
   t.is(error.message, 'Return date is invalid');
 });
 
-test('it should not throw an error when the deal price is missing', (t) => {
+test('it should not throw an error when the deal price is missing', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -168,7 +168,7 @@ test('it should not throw an error when the deal price is missing', (t) => {
   });
 });
 
-test('it should not throw an error when deal price is invalid (using options)', (t) => {
+test('it should not throw an error when deal price is invalid (using options)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -180,7 +180,7 @@ test('it should not throw an error when deal price is invalid (using options)', 
   });
 });
 
-test('it should not throw an error when deal price is invalid (env vars)', (t) => {
+test('it should not throw an error when deal price is invalid (env vars)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -192,7 +192,7 @@ test('it should not throw an error when deal price is invalid (env vars)', (t) =
   });
 });
 
-test('it should not throw an error when deal price is zero', (t) => {
+test('it should not throw an error when deal price is zero', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -204,7 +204,7 @@ test('it should not throw an error when deal price is zero', (t) => {
   });
 });
 
-test('it should not throw an error when deal price is zero or less', (t) => {
+test('it should not throw an error when deal price is zero or less', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -216,7 +216,7 @@ test('it should not throw an error when deal price is zero or less', (t) => {
   });
 });
 
-test('it should not throw an error when the interval is missing', (t) => {
+test('it should not throw an error when the interval is missing', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -228,7 +228,7 @@ test('it should not throw an error when the interval is missing', (t) => {
   });
 });
 
-test('it should not throw an error when the interval is invalid (using options)', (t) => {
+test('it should not throw an error when the interval is invalid (using options)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -241,7 +241,7 @@ test('it should not throw an error when the interval is invalid (using options)'
   });
 });
 
-test('it should not throw an error when the interval is invalid (using env vars)', (t) => {
+test('it should not throw an error when the interval is invalid (using env vars)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -254,7 +254,7 @@ test('it should not throw an error when the interval is invalid (using env vars)
   });
 });
 
-test('it should not throw an error when the interval is zero', (t) => {
+test('it should not throw an error when the interval is zero', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -267,7 +267,7 @@ test('it should not throw an error when the interval is zero', (t) => {
   });
 });
 
-test('it should not throw an error when the interval is zero or less', (t) => {
+test('it should not throw an error when the interval is zero or less', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -280,7 +280,7 @@ test('it should not throw an error when the interval is zero or less', (t) => {
   });
 });
 
-test('it should return a validated options object (using options)', (t) => {
+test('it should return a validated options object (using options)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -293,7 +293,7 @@ test('it should return a validated options object (using options)', (t) => {
   t.true(isPlainObj(validated));
 });
 
-test('it should return a validated options object (using env vars)', (t) => {
+test('it should return a validated options object (using env vars)', t => {
   process.env.AMX_TRACKER_ORIGIN_AIRPORT = 'MEX';
   process.env.AMX_TRACKER_DESTINATION_AIRPORT = 'TIJ';
   process.env.AMX_TRACKER_DEPARTURE_DATE = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -306,7 +306,7 @@ test('it should return a validated options object (using env vars)', (t) => {
   t.true(isPlainObj(validated));
 });
 
-test('the options object should have certain members (with return date)', (t) => {
+test('the options object should have certain members (with return date)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -315,14 +315,14 @@ test('the options object should have certain members (with return date)', (t) =>
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('from'));
-  t.true(validated.hasOwnProperty('to'));
-  t.true(validated.hasOwnProperty('departure'));
-  t.true(validated.hasOwnProperty('return'));
-  t.true(validated.hasOwnProperty('interval'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'from'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'to'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'departure'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'return'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'interval'));
 });
 
-test('the options object should have certain members (with deal price)', (t) => {
+test('the options object should have certain members (with deal price)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
@@ -331,22 +331,22 @@ test('the options object should have certain members (with deal price)', (t) => 
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('from'));
-  t.true(validated.hasOwnProperty('to'));
-  t.true(validated.hasOwnProperty('departure'));
-  t.true(validated.hasOwnProperty('dealPrice'));
-  t.true(validated.hasOwnProperty('interval'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'from'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'to'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'departure'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'dealPrice'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'interval'));
 });
 
-test('the options object should have certain members (always present)', (t) => {
+test('the options object should have certain members (always present)', t => {
   options.from = 'MEX';
   options.to = 'TIJ';
   options.departure = moment().format(constants.DATETIME_DATE_FORMAT);
 
   let validated = get(options);
 
-  t.true(validated.hasOwnProperty('from'));
-  t.true(validated.hasOwnProperty('to'));
-  t.true(validated.hasOwnProperty('departure'));
-  t.true(validated.hasOwnProperty('interval'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'from'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'to'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'departure'));
+  t.true(Object.prototype.hasOwnProperty.call(validated, 'interval'));
 });

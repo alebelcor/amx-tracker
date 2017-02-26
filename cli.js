@@ -26,7 +26,7 @@ const options = getValidatedOptions(cli.flags);
 
 const execute = () => {
   cheapestAirfareAmx(options)
-    .then((result) => {
+    .then(result => {
       if (!options.dealPrice) {
         console.log(`Cheapest total: ${currencyFormatter.format(result.total, {code: 'MXN'})}. Check it out here: ${result.source}`);
         return;
@@ -45,7 +45,7 @@ const execute = () => {
 
       setTimeout(execute, options.interval * 60 * 1000);
     })
-    .catch(console.error)
+    .catch(console.error);
 };
 
 execute();
